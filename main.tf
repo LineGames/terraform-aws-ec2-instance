@@ -78,15 +78,15 @@ resource "aws_instance" "this" {
   dynamic "ebs_block_device" {
     for_each = var.ebs_block_device
     content {
-      delete_on_termination = try(each.value.delete_on_termination, var.delete_on_termination, true)
-      device_name           = try(each.value.ebs_block_device, var.ebs_block_device, null)
-      encrypted             = try(each.value.encrypted, var.encrypted, false)
-      iops                  = try(each.value.iops, var.iops, 3000)
-      kms_key_id            = try(each.value.kms_key_id, var.kms_key_id, null)
-      snapshot_id           = try(each.value.snapshot_id,var.snapshot_id, null)
-      volume_size           = try(each.value.volume_size,var.volume_size, 30)
-      volume_type           = try(each.value.volume_type,var.volume_type, "gp3")
-      throughput            = try(each.value.throughput, var.throughput, 125)
+      delete_on_termination = try(each.value.delete_on_termination, true)
+      device_name           = try(each.value.ebs_block_device, null)
+      encrypted             = try(each.value.encrypted, false)
+      iops                  = try(each.value.iops, 3000)
+      kms_key_id            = try(each.value.kms_key_id, null)
+      snapshot_id           = try(each.value.snapshot_id, null)
+      volume_size           = try(each.value.volume_size, 30)
+      volume_type           = try(each.value.volume_type,"gp3")
+      throughput            = try(each.value.throughput, 125)
     }
   }
 
