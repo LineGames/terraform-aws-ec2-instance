@@ -82,8 +82,6 @@ resource "aws_instance" "this" {
       device_name           = ebs_block_device.value.device_name
       encrypted             = lookup(ebs_block_device.value, "encrypted", false)
       iops                  = lookup(ebs_block_device.value, "iops", 3000)
-      kms_key_id            = lookup(ebs_block_device.value, "kms_key_id", null)
-      snapshot_id           = lookup(ebs_block_device.value, "snapshot_id", null)
       volume_size           = lookup(ebs_block_device.value, "volume_size", 30)
       volume_type           = lookup(ebs_block_device.value, "volume_type", "gp3")
       throughput            = lookup(ebs_block_device.value, "throughput", 125)
