@@ -91,7 +91,7 @@ variable "get_password_data" {
 variable "hibernation" {
   description = "If true, the launched EC2 instance will support hibernation"
   type        = bool
-  default     = null
+  default     = false
 }
 
 variable "host_id" {
