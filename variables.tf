@@ -4,6 +4,12 @@ variable "create" {
   default     = true
 }
 
+variable "override_ebs_mapping" {
+  description = "Override non-root EBS block devices for the instance"
+  type        = bool
+  default     = true
+}
+
 variable "name" {
   description = "Name to be used on EC2 instance created"
   type        = string
