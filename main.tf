@@ -84,7 +84,7 @@ resource "aws_instance" "this" {
       iops                  = ebs_block_device.value.iops
       volume_size           = ebs_block_device.value.volume_size
       volume_type           = ebs_block_device.value.volume_type
-      throughput            = ebs_block_device.valuethroughput
+      throughput            = ebs_block_device.value.throughput
     }
   }
   
