@@ -49,7 +49,7 @@ variable "capacity_reservation_specification" {
 variable "cpu_credits" {
   description = "The credit option for CPU usage (unlimited or standard)"
   type        = string
-  default     = unlimited
+  default     = "unlimited"
 }
 
 variable "disable_api_termination" {
