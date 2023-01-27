@@ -11,7 +11,7 @@ module "wrapper" {
   maintenance_options                  = try(each.value.maintenance_options, var.defaults.maintenance_options, {})
   availability_zone                    = try(each.value.availability_zone, var.defaults.availability_zone, null)
   capacity_reservation_specification   = try(each.value.capacity_reservation_specification, var.defaults.capacity_reservation_specification, {})
-  cpu_credits                          = try(each.value.cpu_credits, var.defaults.cpu_credits, unlimited)
+  cpu_credits                          = try(each.value.cpu_credits, var.defaults.cpu_credits, "unlimited")
   disable_api_termination              = try(each.value.disable_api_termination, var.defaults.disable_api_termination, null)
   ebs_block_device                     = try(each.value.ebs_block_device, var.defaults.ebs_block_device, [])
   ebs_optimized                        = try(each.value.ebs_optimized, var.defaults.ebs_optimized, null)
