@@ -78,13 +78,13 @@ resource "aws_instance" "this" {
     dynamic "ebs_block_device" {
     for_each = var.ebs_block_device
     content {
-      delete_on_termination = lookup(ebs_block_device.value, "delete_on_termination", true)
+      delete_on_termination =  true
       device_name           = ebs_block_device.value.device_name
-      encrypted             = lookup(ebs_block_device.value, "encrypted", false)
-      iops                  = lookup(ebs_block_device.value, "iops", 3000)
-      volume_size           = lookup(ebs_block_device.value, "volume_size", 30)
-      volume_type           = lookup(ebs_block_device.value, "volume_type", "gp3")
-      throughput            = lookup(ebs_block_device.value, "throughput", 125)
+      encrypted             = false
+      iops                  = ebs_block_device.value.iops
+      volume_size           = ebs_block_device.value.volume_size
+      volume_type           = ebs_block_device.value.volume_type
+      throughput            = ebs_block_device.valuethroughput
     }
   }
   
