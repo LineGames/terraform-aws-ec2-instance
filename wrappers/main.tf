@@ -18,7 +18,7 @@ module "wrapper" {
   enclave_options_enabled              = try(each.value.enclave_options_enabled, var.defaults.enclave_options_enabled, null)
   ephemeral_block_device               = try(each.value.ephemeral_block_device, var.defaults.ephemeral_block_device, [])
   get_password_data                    = try(each.value.get_password_data, var.defaults.get_password_data, null)
-  hibernation                          = try(each.value.hibernation, var.defaults.hibernation, null)
+  hibernation                          = try(each.value.hibernation, var.defaults.hibernation, false)
   host_id                              = try(each.value.host_id, var.defaults.host_id, null)
   iam_instance_profile                 = try(each.value.iam_instance_profile, var.defaults.iam_instance_profile, null)
   instance_initiated_shutdown_behavior = try(each.value.instance_initiated_shutdown_behavior, var.defaults.instance_initiated_shutdown_behavior, null)
