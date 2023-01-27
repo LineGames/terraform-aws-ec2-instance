@@ -222,7 +222,7 @@ resource "aws_spot_instance_request" "this" {
   dynamic "root_block_device" {
     for_each = var.root_block_device
     content {
-      delete_on_termination = lookup(root_block_device.value, "delete_on_termination", null)
+      delete_on_termination = lookup(root_block_device.value, "delete_on_termination", true)
       encrypted             = lookup(root_block_device.value, "encrypted", null)
       iops                  = lookup(root_block_device.value, "iops", null)
       kms_key_id            = lookup(root_block_device.value, "kms_key_id", null)
@@ -236,7 +236,7 @@ resource "aws_spot_instance_request" "this" {
   dynamic "ebs_block_device" {
     for_each = var.override_ebs_mapping ? var.ebs_block_device : []
     content {
-      delete_on_termination = lookup(ebs_block_device.value, "delete_on_termination", null)
+      delete_on_termination = lookup(ebs_block_device.value, "delete_on_termination", true)
       device_name           = ebs_block_device.value.device_name
       encrypted             = lookup(ebs_block_device.value, "encrypted", null)
       iops                  = lookup(ebs_block_device.value, "iops", null)
