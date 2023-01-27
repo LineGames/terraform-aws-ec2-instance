@@ -4,6 +4,7 @@ module "wrapper" {
   for_each = var.items
 
   create                               = try(each.value.create, var.defaults.create, true)
+  override_ebs_mapping                 = try(each.value.override_ebs_mapping, var.defaults.override_ebs_mapping, true)
   name                                 = try(each.value.name, var.defaults.name, "")
   ami_ssm_parameter                    = try(each.value.ami_ssm_parameter, var.defaults.ami_ssm_parameter, "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2")
   ami                                  = try(each.value.ami, var.defaults.ami, null)
